@@ -50,3 +50,28 @@ This lab demonstrates how to segment a network using VLANs and configure inter-V
 ### Verification Output
 
 ![Verification](./screenshots/lab3-vlan-verification.png)
+
+---
+
+## 🧪 Lab 3 – VLANs and Router-on-a-Stick Configuration
+
+This lab focused on setting up VLANs on a switch, assigning ports, configuring trunking, and implementing inter-VLAN routing on a router using subinterfaces.
+
+### Objectives
+- Create and assign VLANs to switch ports
+- Configure trunking between the switch and router
+- Set up router subinterfaces for each VLAN
+- Enable inter-VLAN routing
+
+### Topology
+![Lab 3 Topology](./screenshots/lab3-topology.png)
+
+### VLAN Configuration
+This screenshot shows my switch VLAN creation and port assignments:
+![VLAN Configuration](./screenshots/lab3-vlan-config.png)
+
+### Verification
+Ping test results and show commands confirm VLANs and routing are working as expected:
+![Verification](./screenshots/lab3-vlan-verification.png)
+
+---
