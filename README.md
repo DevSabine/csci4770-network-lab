@@ -43,3 +43,10 @@ This lab demonstrates how to segment a network using VLANs and configure inter-V
 
 ---
 
+### VLAN Configuration
+
+![VLAN Configuration](./screenshots/lab3-vlan-config.png)
+
+### Verification Output
+
+![Verification](./screenshots/lab3-vlan-verification.png)
