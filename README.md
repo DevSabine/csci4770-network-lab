@@ -1,77 +1,99 @@
-# csci4770-network-lab
-## Lab Topology
+# Lab 3: VLANs and Router-on-a-Stick
 
-![Lab Topology](./screenshots/lab3-topology.png)
+This lab demonstrates how to segment a network using VLANs and route inter-VLAN traffic using a single physical router interface (Router-on-a-Stick).
 
----
+## 🧠 Objectives
 
-## Lab 3: VLANs and Routing on a Stick
-
-This lab demonstrates how to segment a network using VLANs and configure inter-VLAN routing using a single router interface (Router-on-a-Stick).
-
-### Objectives
-
-- Create multiple VLANs
-- Assign switch ports to VLANs
-- Configure trunking between the switch and router
-- Configure subinterfaces on the router for each VLAN
-- Verify connectivity across VLANs
-
-### Topology
-
-![Lab Topology](./screenshots/lab3-topology.png)
-
-### Devices Used
-
-- 1 Router (1941)
-- 1 Switch (2960)
-- 3 PCs (each in different VLANs)
-
-### Key Configuration Steps
-
-1. **Create VLANs on the Switch**
-2. **Assign Ports to VLANs**
-3. **Set Trunk Port to Router**
-4. **Create Subinterfaces on Router**
-5. **Assign IP Addresses**
-6. **Enable Routing**
-7. **Test Inter-VLAN Connectivity with Ping**
-
-### Sample Output
-
-📎 *See screenshots in `/screenshots/lab3/` folder for verification of pings, VLAN config, and subinterfaces.*
+- Create multiple VLANs on a switch
+- Assign switch ports to different VLANs
+- Configure a trunk link between switch and router
+- Implement Router-on-a-Stick using subinterfaces
+- Assign static IPs to end devices
+- Test network connectivity with ping
 
 ---
 
-### VLAN Configuration
+## 🖼️ Topology
 
-![VLAN Configuration](./screenshots/lab3-vlan-config.png)
-
-### Verification Output
-
-![Verification](./screenshots/lab3-vlan-verification.png)
+![Topology Diagram](screenshots/lab3-topology.png)
 
 ---
 
-## 🧪 Lab 3 – VLANs and Router-on-a-Stick Configuration
+## 🔧 Step-by-Step Configuration
 
-This lab focused on setting up VLANs on a switch, assigning ports, configuring trunking, and implementing inter-VLAN routing on a router using subinterfaces.
+### 1. **VLAN Configuration**
 
-### Objectives
-- Create and assign VLANs to switch ports
-- Configure trunking between the switch and router
-- Set up router subinterfaces for each VLAN
-- Enable inter-VLAN routing
+We created VLANs 10 and 20 and assigned ports to each VLAN.
 
-### Topology
-![Lab 3 Topology](./screenshots/lab3-topology.png)
+![VLAN Config](screenshots/lab3-vlan-config.png)
 
-### VLAN Configuration
-This screenshot shows my switch VLAN creation and port assignments:
-![VLAN Configuration](./screenshots/lab3-vlan-config.png)
+### 2. **VLAN Verification**
 
-### Verification
-Ping test results and show commands confirm VLANs and routing are working as expected:
-![Verification](./screenshots/lab3-vlan-verification.png)
+We confirmed VLANs and port assignments with `show vlan brief`.
+
+![VLAN Verification](screenshots/lab3-vlan-verification.png)
 
 ---
+
+### 3. **Trunk Port Setup**
+
+The trunk was set on interface Gig0/1 to carry multiple VLANs to the router.
+
+![Trunk Port Config](screenshots/lab3-static-trunk,png.png)
+
+---
+
+### 4. **Router Subinterfaces (Router-on-a-Stick)**
+
+Created subinterfaces on Router0 for each VLAN with appropriate IP addresses.
+
+![Router Config](screenshots/lab3-router-config.png)
+
+### 5. **Router Verification**
+
+Confirmed subinterface IP assignments using `show ip interface brief`.
+
+![Router Interface Verification](screenshots/lab3-router-config-verification.png)
+
+---
+
+### 6. **Static IP Configuration**
+
+PCs were manually assigned IP addresses and gateways within their VLAN ranges.
+
+- **PC1 (VLAN 10):**
+
+  ![PC1 IP](screenshots/lab3-static-ip-pc1.png)
+
+- **PC3 (VLAN 20):**
+
+  ![PC3 IP](screenshots/Lab3-static-ip-pc3.png)
+
+---
+
+### 7. **Connectivity Test**
+
+- PC1 successfully pinged 10.10.10.1
+
+  ![Ping from PC1](screenshots/lab3-ping-test-pc1.png)
+
+- PC3 successfully pinged 10.10.10.2
+
+  ![Ping from PC3](screenshots/lab3-ping-test-pc3.png)
+
+---
+
+## ✅ Outcome
+
+- VLANs successfully segmented the switch
+- Trunking and Router-on-a-Stick enabled inter-VLAN routing
+- All PCs could communicate within and across VLANs
+
+---
+
+## 💡 Technologies Used
+
+- Cisco Packet Tracer
+- Cisco 2960 switch
+- Cisco 1941 router
+- PC-PT devices
